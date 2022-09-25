@@ -31,4 +31,4 @@
   - pub/sub
   - message queue
   - streaming
-  - geospatial
+  - geospatial=
