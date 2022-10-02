@@ -15,6 +15,7 @@ public class Lec10MessageQueueTest extends BaseTest {
 
     @BeforeAll
     static void setupQueue() {
+        // using list
         messageQueue = client.getBlockingDeque("message-queue", LongCodec.INSTANCE);
     }
 
