@@ -10,6 +10,7 @@ import reactor.test.StepVerifier;
 
 import java.time.Duration;
 
+// one message per on consumer
 public class Lec10MessageQueueTest extends BaseTest {
     private static RBlockingDequeReactive<Long> messageQueue;
 
