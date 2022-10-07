@@ -38,3 +38,10 @@
   - evict happens after method execution. (use beforeInvocation property otherwise)
 - @CachePut
   - do the method execution always & update the corresponding cache
+
+### Cache Annotations
+- easy to use
+- limitations
+  - no ttl support
+  - not a lot of flexibility
+  - does not work with publisher types!!
