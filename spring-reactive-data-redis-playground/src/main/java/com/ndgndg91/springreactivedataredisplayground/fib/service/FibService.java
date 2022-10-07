@@ -3,6 +3,7 @@ package com.ndgndg91.springreactivedataredisplayground.fib.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -27,6 +28,12 @@ public class FibService {
     @CacheEvict(value = "math:fib", key = "#index")
     public void clearCache(long index) {
         log.info("clearing hash key");
+    }
+
+    @Scheduled(fixedDelay = 10_000)
+    @CacheEvict(value = "math:fib", allEntries = true)
+    public void clearCache() {
+        log.info("clearing all fib keys");
     }
 
     // intentional 2^N

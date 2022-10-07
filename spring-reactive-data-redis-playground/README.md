@@ -28,3 +28,13 @@
 2. If not, it from DB / Compute
 3. Save it in cache for future use
 4. Return the result
+
+### @Cacheable / @CacheEvict / @CachePut
+- @Cacheable
+  - skip the method execution if key is present
+  - do the method execution only if the key is not present & store the result
+- @CacheEvict
+  - do the method execution always & evict the corresponding cache
+  - evict happens after method execution. (use beforeInvocation property otherwise)
+- @CachePut
+  - do the method execution always & update the corresponding cache
