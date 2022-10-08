@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,11 +21,11 @@ public class CityController {
     private final CityService service;
 
 
-    @GetMapping("/apis/cities/{kr-name}")
+    @GetMapping("/apis/cities/{id}")
     public Mono<ResponseEntity<ApiResponse<CityResponse>>> findCityByKrName(
-            @PathVariable("kr-name") final String krName
+            @PathVariable final BigInteger id
     ) {
-        return Mono.just(ResponseEntity.ok(ApiResponse.from(CityResponse.from(service.findByKrName(krName)))));
+        return Mono.just(ResponseEntity.ok(ApiResponse.from(CityResponse.from(service.findById(id)))));
     }
 
     @GetMapping("/apis/cities")

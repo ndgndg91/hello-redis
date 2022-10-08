@@ -26,8 +26,8 @@ public class CityRepository {
         source.put(BigInteger.TEN, new City(BigInteger.TEN, "수원", "Suwon", false));
     }
 
-    public City findByKrName(String krName) {
-        return source.values().stream().filter(c -> c.krName().equals(krName)).findFirst().orElseThrow();
+    public City findById(final BigInteger id) {
+        return source.values().stream().filter(c -> c.id().equals(id)).findFirst().orElseThrow();
     }
 
     public List<City> findAll() {

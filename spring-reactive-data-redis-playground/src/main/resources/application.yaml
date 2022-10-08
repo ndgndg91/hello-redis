@@ -18,5 +18,7 @@ spring:
         codec:
           class: org.redisson.client.codec.StringCodec
             
-          
-        
+
+city:
+  service:
+    url: http://localhost:1010
