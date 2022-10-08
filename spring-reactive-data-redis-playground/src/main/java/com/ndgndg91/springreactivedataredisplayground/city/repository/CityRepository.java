@@ -1,14 +1,14 @@
 package com.ndgndg91.springreactivedataredisplayground.city.repository;
 
 import com.ndgndg91.springreactivedataredisplayground.city.City;
+import com.ndgndg91.springreactivedataredisplayground.city.CityServiceResponse;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.math.BigInteger;
-import java.util.List;
 
 @Repository
 public class CityRepository {
@@ -29,11 +29,11 @@ public class CityRepository {
                 .log();
     }
 
-    public Mono<List<City>> findAllCities() {
+    public Flux<CityServiceResponse> findAllCities() {
         return client.get()
                 .uri("/apis/cities")
                 .retrieve()
-                .bodyToMono(new ParameterizedTypeReference<List<City>>() {})
+                .bodyToFlux(CityServiceResponse.class)
                 .log();
     }
 }

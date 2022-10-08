@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.math.BigInteger;
@@ -20,6 +21,11 @@ public class CityController {
     public Mono<City> findById(
             @PathVariable BigInteger id
     ) {
-        return service.findCity(id);
+        return service.findCityById(id);
+    }
+
+    @GetMapping("/apis/citites")
+    public Flux<City> findAll() {
+        return service.findAll();
     }
 }
