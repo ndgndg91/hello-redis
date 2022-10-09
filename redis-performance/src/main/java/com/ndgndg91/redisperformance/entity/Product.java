@@ -11,7 +11,6 @@ import java.math.BigInteger;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @EqualsAndHashCode
 @ToString
 public class Product {
