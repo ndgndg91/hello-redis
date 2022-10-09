@@ -6,8 +6,9 @@
 % open /usr/local/bin/jmeter
 ```
 
+## V1 - not applied redis
 ```
-% /usr/local/bin/jmeter -n -t Redis-Performance.jmx -l ./v1.jtl
+% /usr/local/bin/jmeter -n -t ./jmeter/v1/v1.jmx -l ./jmeter/v1/v1.jtl
 
 WARNING: package sun.awt.X11 not in java.desktop
 Creating summariser <summary>
@@ -22,9 +23,25 @@ summary = 108271 in 00:01:00 = 1800.0/s Avg:    82 Min:     2 Max:  1223 Err:   
 Tidying up ...    @ 2022 Oct 9 16:17:16 KST (1665299836933)
 ... end of run
 ```
-
-## V1 - not applied redis
 <img width="1843" alt="스크린샷 2022-10-09 오후 4 26 35" src="https://user-images.githubusercontent.com/19872667/194743681-ff150a0a-aec8-43cb-9119-1643b732fd79.png">
 
 
 ## V2 - applied redis
+```
+ % /usr/local/bin/jmeter -n -t ./jmeter/v2/v2.jmx -l ./jmeter/v2/v2.jtl
+WARNING: package sun.awt.X11 not in java.desktop
+Creating summariser <summary>
+Created the tree successfully using ./jmeter/v2/v2.jmx
+Starting standalone test @ 2022 Oct 9 17:47:15 KST (1665305235878)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+summary +  73320 in 00:00:14 = 5213.7/s Avg:     8 Min:     0 Max:  1063 Err:     0 (0.00%) Active: 93 Started: 93 Finished: 0
+summary + 194217 in 00:00:30 = 6474.1/s Avg:    26 Min:     1 Max:   279 Err:     0 (0.00%) Active: 200 Started: 200 Finished: 0
+summary = 267537 in 00:00:44 = 6071.8/s Avg:    21 Min:     0 Max:  1063 Err:     0 (0.00%)
+summary +  96543 in 00:00:16 = 6028.7/s Avg:    33 Min:     2 Max:   298 Err:     0 (0.00%) Active: 0 Started: 200 Finished: 200
+summary = 364080 in 00:01:00 = 6060.3/s Avg:    24 Min:     0 Max:  1063 Err:     0 (0.00%)
+Tidying up ...    @ 2022 Oct 9 17:48:16 KST (1665305296014)
+... end of run
+
+```
+
+<img width="1849" alt="스크린샷 2022-10-09 오후 5 51 46" src="https://user-images.githubusercontent.com/19872667/194747373-9436c2cf-a006-4b07-8d1f-f9eff4b4a425.png">
