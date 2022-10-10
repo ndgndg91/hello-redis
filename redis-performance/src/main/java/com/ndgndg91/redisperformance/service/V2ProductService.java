@@ -12,12 +12,16 @@ public class V2ProductService {
 
     private final CacheTemplate<BigInteger, Product> template;
 
-    public V2ProductService(ProductCacheTemplate template) {
+    private final ProductVisitService service;
+
+    public V2ProductService(ProductCacheTemplate template, ProductVisitService service) {
         this.template = template;
+        this.service = service;
     }
 
     public Mono<Product> findById(final BigInteger id) {
-        return template.find(id);
+        return template.find(id)
+                .doFirst(() -> service.addVisit(id));
     }
 
     public Mono<Product> update(final BigInteger id, final ProductChange change) {
