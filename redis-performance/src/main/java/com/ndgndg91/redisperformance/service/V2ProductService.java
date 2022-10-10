@@ -2,17 +2,19 @@ package com.ndgndg91.redisperformance.service;
 
 import com.ndgndg91.redisperformance.dto.ProductChange;
 import com.ndgndg91.redisperformance.entity.Product;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 import java.math.BigInteger;
 
 @Service
-@RequiredArgsConstructor
 public class V2ProductService {
 
-    private final CacheTemplate<BigInteger, Product> template ;
+    private final CacheTemplate<BigInteger, Product> template;
+
+    public V2ProductService(ProductCacheTemplate template) {
+        this.template = template;
+    }
 
     public Mono<Product> findById(final BigInteger id) {
         return template.find(id);
