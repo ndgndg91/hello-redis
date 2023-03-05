@@ -8,6 +8,7 @@
   - LeaderBoard
   - GeoSpatial
   - Message Queue
+- Distributed Lock
 
 ## Course Structure
 - Redis - Crash Course
