@@ -17,7 +17,7 @@ class QueueJobController(
     @PostMapping("/apis/jobs")
     fun generate(@RequestBody body: QueueJobRequest): ResponseEntity<Unit> {
         val jobId = service.queue(body.start, body.end)
-        return ResponseEntity.created(URI.create("/apis/generations/${jobId}")).build()
+        return ResponseEntity.created(URI.create("/apis/jobs/${jobId}")).build()
     }
 
     @GetMapping("/apis/jobs/{id}")
